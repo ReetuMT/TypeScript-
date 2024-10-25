@@ -1,24 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Welcome from './Component/Welcome';
+import Person from './Component/Person';
+import PersonList from './Component/PersonList';
+import { Status } from './Component/Status';
+import { Heading } from './Component/Heading';
+import { Family } from './Component/Family';
+import { Button } from './Component/Button';
+import { Input } from './Component/Input';
+
 
 function App() {
+  
+  const familyList=[
+    {
+      first:'Malatesh',
+      last:'Tambre'
+    },
+    {
+      first:'Renu',
+      last:'Tambre'
+    },
+    {
+      first:'Reshma',
+      last:'Tambre'
+    },
+    {
+      first:'Reetu',
+      last:'Tambre'
+    },
+    {
+      first:'Kirti',
+      last:'Tambre'
+    }
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>--------------------------TypeScript Topics--------------------------</h3>
+      <Welcome name='Reetu' messageCounter={100} isLoggedIn={true} />
+      <PersonList names={familyList} />
     </div>
   );
 }
