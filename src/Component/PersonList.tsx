@@ -10,6 +10,15 @@ import { LoggedIn } from './State/LoggedIn';
 import User from './State/User';
 import User2 from './State/User2';
 import { Counter } from './State/Counter';
+import { ThemeContextProvider } from './context/ThemeContext';
+import Box from './context/Box';
+import { UserContextProvider } from './context/UseContext';
+import Users from './context/Users';
+import { MutableRef } from './ref/MutableRef';
+import { DemoRef } from './ref/DemoRef';
+import { Count } from './Class/Count';
+import { Private } from './auth/Private';
+import { Profile } from './auth/Profile';
 
 type FamilyList = {
   names: Name[];
@@ -25,7 +34,7 @@ const PersonList: React.FC<FamilyList> = (props) => {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)', 
+        gridTemplateColumns: 'repeat(4, 1fr)',
         gap: '20px',
       }}
     >
@@ -89,10 +98,10 @@ const PersonList: React.FC<FamilyList> = (props) => {
           borderRadius: '8px',
         }}
       >
-         <h3>---------UseState----------</h3>
-       <LoggedIn/>
+        <h3>---------UseState----------</h3>
+        <LoggedIn />
       </div>
-       {/* Usestate Value Section */}
+      {/* Usestate Value Section */}
       <div
         style={{
           border: '2px solid black',
@@ -100,8 +109,8 @@ const PersonList: React.FC<FamilyList> = (props) => {
           borderRadius: '8px',
         }}
       >
-         <h3>---------UseState value----------</h3>
-       <User/>
+        <h3>---------UseState value----------</h3>
+        <User />
       </div>
       {/* Usestate Type asserion Section */}
       <div
@@ -111,8 +120,32 @@ const PersonList: React.FC<FamilyList> = (props) => {
           borderRadius: '8px',
         }}
       >
-         <h3>--UseState Type Assertion----</h3>
-       <User2/>
+        <h3>--UseState Type Assertion----</h3>
+        <User2 />
+      </div>
+      {/* Use Reducer Hook*/}
+      <div
+        style={{
+          border: '2px solid black',
+          padding: '10px',
+          borderRadius: '8px',
+        }}
+      >
+        <h3>-------UseReducer Hook------</h3>
+        <Counter />
+      </div>
+      {/* UseContext Hook */}
+      <div
+        style={{
+          border: '2px solid black',
+          padding: '10px',
+          borderRadius: '8px',
+        }}
+      >
+        <h3>-------UseContext Hook------</h3>
+        <ThemeContextProvider>
+          <Box />
+        </ThemeContextProvider>
       </div>
       <div
         style={{
@@ -121,8 +154,41 @@ const PersonList: React.FC<FamilyList> = (props) => {
           borderRadius: '8px',
         }}
       >
-         <h3>-------UseReducer Hook------</h3>
-       <Counter/>
+        <h3>-------UseContext Hook------</h3>
+        <UserContextProvider>
+          <Users />
+        </UserContextProvider>
+      </div>
+      {/* UseRef and UseEffect Hook */}
+      <div
+        style={{
+          border: '2px solid black',
+          padding: '10px',
+          borderRadius: '8px',
+        }}
+      >
+        <h3>-------Use Ref Hook------</h3>
+       <MutableRef/>
+      </div>
+      <div
+        style={{
+          border: '2px solid black',
+          padding: '10px',
+          borderRadius: '8px',
+        }}
+      >
+        <h3>-------Class Componet------</h3>
+       <Count message='Number of Peoples'/>
+      </div>
+      <div
+        style={{
+          border: '2px solid black',
+          padding: '10px',
+          borderRadius: '8px',
+        }}
+      >
+        <h3>-------Component App------</h3>
+       <Private isLoggedIn={true} component={Profile}/>
       </div>
     </div>
   );
