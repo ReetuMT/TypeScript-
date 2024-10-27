@@ -19,6 +19,12 @@ import { DemoRef } from './ref/DemoRef';
 import { Count } from './Class/Count';
 import { Private } from './auth/Private';
 import { Profile } from './auth/Profile';
+import List from './genertics/List';
+import { ReandomNumber } from './restriction/RandomNumbers';
+import { Toast } from './TemplateLiterals/Toast';
+import { CustomButton } from './html/Button';
+import CustomComponent from './html/CustomComponent';
+import { Text } from './ploymorphic/text';
 
 type FamilyList = {
   names: Name[];
@@ -168,7 +174,7 @@ const PersonList: React.FC<FamilyList> = (props) => {
         }}
       >
         <h3>-------Use Ref Hook------</h3>
-       <MutableRef/>
+        <MutableRef />
       </div>
       <div
         style={{
@@ -178,7 +184,7 @@ const PersonList: React.FC<FamilyList> = (props) => {
         }}
       >
         <h3>-------Class Componet------</h3>
-       <Count message='Number of Peoples'/>
+        <Count message='Number of Peoples' />
       </div>
       <div
         style={{
@@ -188,7 +194,67 @@ const PersonList: React.FC<FamilyList> = (props) => {
         }}
       >
         <h3>-------Component App------</h3>
-       <Private isLoggedIn={true} component={Profile}/>
+        <Private isLoggedIn={true} component={Profile} />
+      </div>
+      <div
+        style={{
+          border: '2px solid black',
+          padding: '10px',
+          borderRadius: '8px',
+        }}
+      >
+        <h3>-------Generics Props------</h3>
+        <List items={['Banana', 'Apple', 'Mango']} onClick={(item) => console.log(item)} />
+        <List items={[1, 2, 3]} onClick={(item) => console.log(item)} />
+      </div>
+      <div
+        style={{
+          border: '2px solid black',
+          padding: '10px',
+          borderRadius: '8px',
+        }}
+      >
+        <h3>-------Restricting Props------</h3>
+        <ReandomNumber value={10} isPositive />
+      </div>
+      <div
+        style={{
+          border: '2px solid black',
+          padding: '10px',
+          borderRadius: '8px',
+        }}
+      >
+        <h3>--Template Literals and Exclude Props--</h3>
+        <Toast position="left-top" />
+        <Toast position="right-bottom" />
+        <Toast position="center-top" />
+
+      </div>
+      <div
+        style={{
+          border: '2px solid black',
+          padding: '10px',
+          borderRadius: '8px',
+        }}
+      >
+        <h3>-Wrapping HTML Element--</h3>
+        <CustomButton variant="primary" onClick={()=>console.log("Clicked")}>Primary Button</CustomButton>
+
+
+      </div>
+      <div
+        style={{
+          border: '2px solid black',
+          padding: '10px',
+          borderRadius: '8px',
+        }}
+      >
+        <h3>-Polymorphic Component--</h3>
+        <Text as='label' htmlFor='someId' size='sm' color='secondary'>Lable</Text>
+        <Text as='h1' size='md' >Paragraph</Text>
+        <Text as='p' size='lg'>Heading</Text>
+
+
       </div>
     </div>
   );
